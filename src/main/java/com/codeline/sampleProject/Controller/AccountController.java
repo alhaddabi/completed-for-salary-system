@@ -2,10 +2,13 @@ package com.codeline.sampleProject.Controller;
 
 import com.codeline.sampleProject.Models.Account;
 import com.codeline.sampleProject.Models.Employee;
+import com.codeline.sampleProject.ResponseObject.GetAccountResponse;
+import com.codeline.sampleProject.ResponseObject.GetEmployeeResponse;
 import com.codeline.sampleProject.Service.AccountService;
 import com.codeline.sampleProject.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,13 +33,21 @@ public class AccountController {
     {
         return accountService.getAccount();
     }
+
+    @RequestMapping("account/get/{accountId}")
+    public GetAccountResponse createAccount (@PathVariable Long accountId)
+    {
+        return accountService.getAccountById(accountId);
+    }
+
     public void createAccount() {
 
         Account account = new Account();
-        account.setAccountNumber(46456546);
-        account.setAccountHolderName("Adnan AL-Haddabi");
+        account.setBankName("Bank Muscta");
+        account.setAccountNumber(48484848);
+        account.setAccountHolderName("Ali Mohammed ");
         account.setCreatedDate(new Date());
-        account.setBranchCode(1254);
+        account.setBranchCode(201346);
         account.setSwiftCode("14525");
         account.setBankBranch("Muscat");
         accountService.saveAccount(account);
