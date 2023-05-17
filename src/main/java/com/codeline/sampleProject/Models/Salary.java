@@ -22,13 +22,13 @@ public class Salary extends BaseEntity {
 
     String currency;
 
-    Double overTimeAmount;
+    Integer overTimeAmount;
 
     Double deductions;
 
     Double healthCareContribution;
 
-    Double allowances;
+    Integer allowances;
 
     Double bonus;
 

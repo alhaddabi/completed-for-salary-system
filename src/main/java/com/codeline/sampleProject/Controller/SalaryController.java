@@ -1,12 +1,12 @@
 package com.codeline.sampleProject.Controller;
 
-import com.codeline.sampleProject.Models.Account;
 import com.codeline.sampleProject.Models.Salary;
-import com.codeline.sampleProject.Repository.SalaryRepository;
-import com.codeline.sampleProject.Service.AccountService;
+import com.codeline.sampleProject.RequestObject.getSalaryRequestObject;
+import com.codeline.sampleProject.ResponseObject.GetSalaryResponse;
 import com.codeline.sampleProject.Service.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +20,10 @@ public class SalaryController {
     @Autowired
     SalaryService salaryService;
 
-    @RequestMapping("Salary/create")
-    public void saveAccount()
+    @RequestMapping("salary/create")
+    public void saveSalary (@RequestBody Long salaryRequestObject)
     {
-        createAccount();
+        createSalary(salaryRequestObject);
     }
 
     @RequestMapping("salary/get")
@@ -31,14 +31,23 @@ public class SalaryController {
     {
         return salaryService.getSalary();
     }
-    public void createAccount() {
+
+
+    @RequestMapping("salary/get/{salaryId}")
+    public GetSalaryResponse createSalary (@PathVariable Long salaryId)
+    {
+        return salaryService.getSalaryById(salaryId);
+    }
+    public void createAccount(getSalaryRequestObject salaryRequestObject ) {
 
         Salary salary = new Salary();
-        salary.setAllowances(5456.4654);
+        salary.setAllowances(salaryRequestObject.getAllowances());
+        salary.setAmount(salaryRequestObject.getAmount());
         salary.setBonus(12.12);
-        salary.setCurrency("Omani");
+        salary.setCurrency(salary.getCurrency());
         salary.setCreatedDate(new Date());
         salary.setIsActive(true);
+        salary.setOverTimeAmount(2);
         salary.setHealthCareContribution(1248545.546);
         salaryService.saveSalary(salary);
     }
