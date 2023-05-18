@@ -1,14 +1,12 @@
 package com.codeline.sampleProject.Controller;
 
 import com.codeline.sampleProject.Models.Employee;
+import com.codeline.sampleProject.Repository.EmployeeRepository;
 import com.codeline.sampleProject.RequestObject.getEmployeeRequestObject;
 import com.codeline.sampleProject.ResponseObject.GetEmployeeResponse;
 import com.codeline.sampleProject.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -39,6 +37,16 @@ public class EmployeeController {
     {
        return employeeService.getEmployeeById(employeeId);
     }
+
+//    @DeleteMapping("employee/{employeeId}") String DeleteEmployee(@PathVariable Long employeeId)
+//    {
+//        if(!GetEmployeeResponse.equal(employeeId))
+//        {
+//            throw new EmployeeNotFoundExecption(employeeId);
+//        }
+//        EmployeeRepository.deleteById(employeeId)
+//        return "the user "+ employeeId + " has been deleted";
+//    }
 
     public void createEmployee(getEmployeeRequestObject employeeRequestObject) {
 

@@ -17,7 +17,6 @@ public class GetSalaryResponse {
     String currency;
 
     Integer allowances;
-
-    public GetSalaryResponse(Double amount, Integer allowances, String currency) {
-    }
 }
+
+

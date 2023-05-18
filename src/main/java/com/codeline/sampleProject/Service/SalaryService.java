@@ -1,6 +1,7 @@
 package com.codeline.sampleProject.Service;
 
 import com.codeline.sampleProject.Models.Account;
+import com.codeline.sampleProject.Models.Employee;
 import com.codeline.sampleProject.Models.Manager;
 import com.codeline.sampleProject.Models.Salary;
 import com.codeline.sampleProject.Repository.AccountRepository;
@@ -16,30 +17,29 @@ import java.util.Optional;
 @Service
 public class SalaryService {
 
-    public List<Salary> getSalary()
-    {
+    public List<Salary> getSalary() {
         return salaryRepository.findAll();
     }
 
     @Autowired
     SalaryRepository salaryRepository;
 
-    public void saveSalary(Salary salary)
-
-    {
+    public void saveSalary(Salary salary) {
         salaryRepository.save(salary);
     }
-
 
 
     public GetSalaryResponse getSalaryById(Long salaryId) {
         Optional<Salary> optionalSalary = salaryRepository.findById(salaryId);
         if (!optionalSalary.isEmpty()) {
             Salary salary = optionalSalary.get();
-            GetSalaryResponse managerResponse = new GetSalaryResponse(salary.getAmount(), salary.getAllowances() , salary.getCurrency());
+            GetSalaryResponse managerResponse = new GetSalaryResponse(salary.getAmount(), salary.getCurrency(), salary.getAllowances());
             return managerResponse;
         } else {
             return null;
         }
+
+
     }
+
 }

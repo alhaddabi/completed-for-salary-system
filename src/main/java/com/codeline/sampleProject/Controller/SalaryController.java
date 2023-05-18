@@ -44,7 +44,7 @@ public class SalaryController {
         salary.setAllowances(salaryRequestObject.getAllowances());
         salary.setAmount(salaryRequestObject.getAmount());
         salary.setBonus(12.12);
-        salary.setCurrency(salary.getCurrency());
+        salary.setCurrency(salaryRequestObject.getCurrency());
         salary.setCreatedDate(new Date());
         salary.setIsActive(true);
         salary.setOverTimeAmount(2);
