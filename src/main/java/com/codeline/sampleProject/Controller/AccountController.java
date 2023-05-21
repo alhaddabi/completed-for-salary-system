@@ -8,6 +8,7 @@ import com.codeline.sampleProject.Service.AccountService;
 import com.codeline.sampleProject.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,10 +41,12 @@ public class AccountController {
         return accountService.getAccountById(accountId);
     }
 
+
+
     public void createAccount() {
 
         Account account = new Account();
-        account.setBankName("Bank Muscta");
+        account.setBankName("Bank Muscat");
         account.setAccountNumber(48484848);
         account.setAccountHolderName("Ali Mohammed ");
         account.setCreatedDate(new Date());

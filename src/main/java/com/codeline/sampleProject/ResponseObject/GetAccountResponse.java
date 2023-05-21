@@ -1,6 +1,7 @@
 package com.codeline.sampleProject.ResponseObject;
 
 
+import com.codeline.sampleProject.Models.Account;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,4 +18,7 @@ public class GetAccountResponse {
     Integer accountNumber;
 
     String bankBranch;
+
+    public GetAccountResponse(String success, Account account) {
+    }
 }

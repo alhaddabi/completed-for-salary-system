@@ -24,18 +24,14 @@ public class EmployeeService {
     }
 
     public GetEmployeeResponse getEmployeeById(Long employeeId) {
-        Optional<Employee> optionalEmployee =  employeeRepository.findById(employeeId);
-        if(!optionalEmployee.isEmpty())
-        {
-            Employee employee =  optionalEmployee.get();
+        Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+        if (!optionalEmployee.isEmpty()) {
+            Employee employee = optionalEmployee.get();
             GetEmployeeResponse employeeResponse = new GetEmployeeResponse(employee.getName(), employee.getGender(), employee.getDepartment(), employee.getSalary());
             return employeeResponse;
-        }
-        else
-        {
+        } else {
             return null;
         }
-
-
     }
+
 }
