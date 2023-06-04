@@ -11,10 +11,7 @@ import com.codeline.sampleProject.Service.AccountService;
 import com.codeline.sampleProject.Service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -52,5 +49,9 @@ public class MangerController {
         manager.setDepartment(managerRequestObject.getDepartment());
         manager.setIsActive(true);
         managerservice.saveManager(manager);
+    }
+    @RequestMapping(value = "findManagerByTeamName", method = RequestMethod.GET)
+    public Manager getManagerByTeamName(@RequestParam String teamName){
+        return managerservice.getManagerByTeamName(teamName);
     }
 }

@@ -48,6 +48,12 @@ public class EmployeeController {
 //        return "the user "+ employeeId + " has been deleted";
 //    }
 
+//
+//    @RequestMapping("employee/delete/employeeId")
+//    public void deleteEmployee(@PathVariable Long employeeId) {
+//        EmployeeService.deleteEmployeeById(employeeId);
+//    }
+
 
     public void createEmployee(getEmployeeRequestObject employeeRequestObject) {
 
@@ -62,4 +68,8 @@ public class EmployeeController {
         employeeService.saveEmployee(employee);
     }
 
+    @RequestMapping("employee/getByDepartment")
+    public List<Employee> getAllEmployeesByDepartment(@RequestParam String departmentName) {
+        return employeeService.getEmployeesByDept(departmentName);
+    }
 }

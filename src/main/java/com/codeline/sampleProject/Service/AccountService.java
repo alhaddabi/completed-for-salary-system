@@ -1,6 +1,8 @@
 package com.codeline.sampleProject.Service;
 
 import com.codeline.sampleProject.Models.Account;
+import com.codeline.sampleProject.Models.Employee;
+import com.codeline.sampleProject.Models.Manager;
 import com.codeline.sampleProject.Repository.AccountRepository;
 import com.codeline.sampleProject.Repository.EmployeeRepository;
 import com.codeline.sampleProject.ResponseObject.GetAccountResponse;
@@ -33,9 +35,9 @@ public class AccountService {
             return null;
         }
     }
-
-
-
+    public Account getAccountByAccountNumber(String accountNumber){
+        return accountRepository.getAccountByAccountNumber(accountNumber);
+    }
 
     }
 

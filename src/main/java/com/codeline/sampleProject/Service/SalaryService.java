@@ -41,5 +41,8 @@ public class SalaryService {
 
 
     }
+    public Salary getByCurrencyName(String currencyName){
+        return salaryRepository.getByCurrencyName(currencyName);
+    }
 
 }
