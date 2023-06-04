@@ -62,7 +62,7 @@ public class EmployeeController {
         employee.setGender(employeeRequestObject.getGender());
         employee.setSalary(100.0);
         employee.setDepartment(employeeRequestObject.getDepartment());
-        employee.setCompanyName("TechM");
+        employee.setCompanyName("PDO");
         employee.setCreatedDate(new Date());
         employee.setIsActive(true);
         employeeService.saveEmployee(employee);
@@ -77,5 +77,11 @@ public class EmployeeController {
     @RequestMapping("employee/getBySalary")
     public List<Employee> getEmployeeBYSalary(@RequestParam Double salaryAmount) {
         return employeeService.getEmployeesSalary(salaryAmount);
+    }
+
+
+    @RequestMapping("employee/getByCompanyName")
+    public Employee getEmployeeByCompanyName(@RequestParam String CompanyName) {
+        return employeeService.getEmployeeByCompanyName(CompanyName);
     }
 }

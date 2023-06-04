@@ -17,4 +17,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query("SELECT a FROM Employee a WHERE a.salary=:salaryOfEmployee")
     List<Employee> getEmployeeSalary(@Param("salaryOfEmployee") Double salary);
 
+
+    @Query("SELECT a FROM Employee a WHERE a.companyName=:nameOfCompany")
+    Employee getEmployeeByCompanyName(@Param("nameOfCompany") String salary);
+
+
+
 }
