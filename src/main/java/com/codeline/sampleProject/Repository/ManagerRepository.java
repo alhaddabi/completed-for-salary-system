@@ -12,6 +12,11 @@ import java.util.List;
 public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
     @Query("SELECT a FROM Manager a WHERE a.teamName=:teamName")
-    Manager getManagerByTeamName(@Param("teamName") String teamNa);
+    List<Manager> getManagerByTeamName(@Param("teamName") String teamNa);
+
+
+    @Query("SELECT a FROM Manager a WHERE a.department=:departmentName")
+    List<Manager> getByDepartmentName(@Param("departmentName") String teamNa);
+
 
 }

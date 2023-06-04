@@ -50,8 +50,8 @@ public class MangerController {
         manager.setIsActive(true);
         managerservice.saveManager(manager);
     }
-    @RequestMapping(value = "findManagerByTeamName", method = RequestMethod.GET)
-    public Manager getManagerByTeamName(@RequestParam String teamName){
+    @RequestMapping("manager/getManagerByTeamName")
+    public List<Manager> getManagerByTeamName(@RequestParam String teamName){
         return managerservice.getManagerByTeamName(teamName);
     }
 }
