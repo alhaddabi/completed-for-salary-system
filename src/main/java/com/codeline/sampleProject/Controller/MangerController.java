@@ -54,4 +54,9 @@ public class MangerController {
     public List<Manager> getManagerByTeamName(@RequestParam String teamName){
         return managerservice.getManagerByTeamName(teamName);
     }
+
+    @RequestMapping("manager/getManagerByDepartment")
+    public List<Manager> getByDepartmentName(@RequestParam String departmentNa){
+        return managerservice.getByDepartmentName(departmentNa);
+    }
 }

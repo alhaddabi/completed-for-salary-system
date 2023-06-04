@@ -16,7 +16,7 @@ public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
 
     @Query("SELECT a FROM Manager a WHERE a.department=:departmentName")
-    List<Manager> getByDepartmentName(@Param("departmentName") String teamNa);
+    List<Manager> getByDepartmentName(@Param("departmentName") String depNa);
 
 
 }

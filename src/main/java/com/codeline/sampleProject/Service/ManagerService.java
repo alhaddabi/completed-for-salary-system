@@ -43,6 +43,10 @@ public class ManagerService {
         return managerRepository.getManagerByTeamName(teamName);
     }
 
+    public List<Manager> getByDepartmentName(String depNa){
+        return managerRepository.getByDepartmentName(depNa);
+    }
+
 
 
 }
