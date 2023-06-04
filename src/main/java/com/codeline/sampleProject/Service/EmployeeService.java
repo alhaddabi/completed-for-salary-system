@@ -50,7 +50,12 @@ public class EmployeeService {
     }
 
 
-    public Employee getEmployeeByCompanyName(String byCompanyName){
+    public List<Employee> getEmployeeByCompanyName(String byCompanyName){
         return employeeRepository.getEmployeeByCompanyName(byCompanyName);
+    }
+
+
+    public List<Employee> getEmployeeByGender(String byGender){
+        return employeeRepository.getEmployeeByGender(byGender);
     }
 }

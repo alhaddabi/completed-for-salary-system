@@ -65,6 +65,7 @@ public class EmployeeController {
         employee.setCompanyName("PDO");
         employee.setCreatedDate(new Date());
         employee.setIsActive(true);
+        employee.setGender("Female");
         employeeService.saveEmployee(employee);
     }
 
@@ -81,7 +82,13 @@ public class EmployeeController {
 
 
     @RequestMapping("employee/getByCompanyName")
-    public Employee getEmployeeByCompanyName(@RequestParam String CompanyName) {
+    public List<Employee> getEmployeeByCompanyName(@RequestParam String CompanyName) {
         return employeeService.getEmployeeByCompanyName(CompanyName);
+    }
+
+
+    @RequestMapping("employee/getBuGenderType")
+    public List<Employee> getEmployeeByGender(@RequestParam String genderType) {
+        return employeeService.getEmployeeByGender(genderType);
     }
 }
