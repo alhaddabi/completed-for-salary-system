@@ -1,10 +1,7 @@
 package com.codeline.sampleProject.Service;
 
 import com.codeline.sampleProject.Models.Account;
-import com.codeline.sampleProject.Models.Employee;
-import com.codeline.sampleProject.Models.Manager;
 import com.codeline.sampleProject.Repository.AccountRepository;
-import com.codeline.sampleProject.Repository.EmployeeRepository;
 import com.codeline.sampleProject.ResponseObject.GetAccountResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +34,14 @@ public class AccountService {
     }
     public Account getAccountByAccountNumber(String accountNumber){
         return accountRepository.getAccountByAccountNumber(accountNumber);
+    }
+
+    public Account getBankByName(String BankName){
+        return accountRepository.getBankByName(BankName);
+    }
+
+    public List<Account> getBankBranch(String BankBranch){
+        return accountRepository.getBankByBranch(BankBranch);
     }
 
     }

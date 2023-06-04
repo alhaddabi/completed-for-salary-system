@@ -50,11 +50,23 @@ public class AccountController {
         account.setCreatedDate(new Date());
         account.setBranchCode(201346);
         account.setSwiftCode("14525");
-        account.setBankBranch("Muscat");
+        account.setBankBranch("MM");
         accountService.saveAccount(account);
     }
     @RequestMapping("account/getByAccountNumber")
     public Account getAccountByAccountNumber(@RequestParam String accountNumber){
         return accountService.getAccountByAccountNumber(accountNumber);
+    }
+
+
+    @RequestMapping("account/getBankNyName")
+    public Account getBankByName(@RequestParam String BankName){
+        return accountService.getBankByName(BankName);
+    }
+
+
+    @RequestMapping("account/getBankBranch")
+    public List<Account> getBankByBranch(@RequestParam String BranchName){
+        return accountService.getBankBranch(BranchName);
     }
 }
